@@ -1,6 +1,6 @@
 # api_yamdb
 
-https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow/badge.svg
+https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
 
 ### Проект
 База отзывов о фильмах, книгах и музыке.
