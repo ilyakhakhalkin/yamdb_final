@@ -53,11 +53,10 @@ class ReviewViewSet(viewsets.ModelViewSet):
     permission_classes = (ReadOrAuthorModerAdmin,)
 
     def get_title(self):
-        title = get_object_or_404(
+        return get_object_or_404(
             Title,
             pk=self.kwargs.get('title_id')
         )
-        return title
 
     def get_queryset(self):
         return self.get_title().reviews.all()
