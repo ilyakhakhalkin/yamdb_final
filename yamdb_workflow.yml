@@ -58,21 +58,9 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          mkdir yamdb_final
-          cd yamdb_final
-
-          sudo docker-compose stop
-          sudo docker-compose rm web
-
-          touch .env
-          echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-          echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-          echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
-          sudo docker-compose up -d
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}
+          sudo docker stop yamdb_final
+          sudo docker run --name yamdb_final --rm -d -p 5002:5000 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}
 
   send_message:
     runs-on: ubuntu-latest

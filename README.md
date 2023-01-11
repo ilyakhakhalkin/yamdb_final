@@ -1,5 +1,7 @@
 # api_yamdb
 
+https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow/badge.svg
+
 ### Проект
 База отзывов о фильмах, книгах и музыке.
 
@@ -76,6 +78,7 @@ POST /api/v1/auth/token/
 * Django Rest Framework
 * Postgresql
 * Docker
+* Docker-Compose
 * Nginx
 
 
