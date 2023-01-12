@@ -2,6 +2,11 @@
 
 ![example workflow](https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+- Развернутый проект:
+```
+158.160.26.77
+```
+
 ### Проект
 База отзывов о фильмах, книгах и музыке.
 
