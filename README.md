@@ -1,75 +1,75 @@
 # api_yamdb
 
 ![example workflow](https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
-База отзывов о фильмах, книгах и музыке.
+A database of reviews for movies, books, and music.
 
-Пользователи пишут отзывы на произведения, ставят оценку, назначают категории и жанры.
-Есть возможность оставлять комментарии под отзывом.
+Users can write reviews for various works, rate them, assign categories and genres. There is also the ability to leave comments under each review.
 
-##### Права доступа:
-Неаутентифицированные пользователи:
-* только чтение
+##### Access rights:
 
-Аутентифицированные пользователи:
-* чтение
-* добавление отзывов
-* добавление комментариев
-* редактирование своих отзывов
-* редактирование своих комментариев
+Unauthenticated users:
+- Read-only access
 
-Модераторы:
-* доступны все оперции, в том числе добавление произведений
+Authenticated users:
+- Read access
+- Ability to add reviews
+- Ability to add comments
+- Ability to edit their own reviews
+- Ability to edit their own comments
+
+Moderators:
+- Full access, including the ability to add works.
 
 
-### Как запустить проект:
+### How to run:
 
-* Клонировать репозиторий
-* Перейти в директорию с docker-compose.yaml:
+* Clone the repository
+* Navigate to the directory containing the docker-compose.yaml file:
 ```
 cd infra
 ```
-* собрать контейнеры:
+* Build the containers:
 ```
 docker-compose up -d
 ```
-* выполнить миграции:
+* Run migrations:
 ```
 docker-compose exec web python manage.py migrate
 ```
-* создать суперпользователя:
+* Create a superuser:
 ```
 docker-compose exec web python manage.py createsuperuser
 ```
-* собрать статику:
+* Collect static files:
 ```
 docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-### Использование API
+### API usage
 
-* Документация:
+* Docs:
 ```
 http://127.0.0.1/redoc/
 ```
 
-* Операции чтения доступны всем пользователям:
+* "Read" operations are available to all users:
 ```
 GET /api/v1/genres/
 ```
 
-* Операции записи доступны только аутентифицированным пользователям:
+* The write operations are available only to authenticated users.
 ```
 POST /api/v1/genres/
 ```
 
-* Для аутентификации нужен код подтверждения, его можно посмотреть через админ-панель Django
+* To authenticate, you need a confirmation code that can be viewed through the Django admin panel.
 ```
 POST /api/v1/auth/token/
 ```
 
-Подробности в документации
+For more details see documentation at /redoc
 
-### Стек технологий
+### Tech stack
 
 * Python
 * Django
@@ -80,9 +80,9 @@ POST /api/v1/auth/token/
 * Nginx
 
 
-##### Авторы
+##### Authors
 
 ```
-Тимофей Городилов - управление пользователями: система регистрации и аутентификации, права доступа, работа с токеном, система подтверждения через e-mail.
-Илья Хахалкин - категории, жанры и произведения: модели, представления и эндпоинты для них.
-Анна Петрова - отзывы и комментарии.
+Timofey Gorodilov - user management: registration and authentication system, access rights, token-based authentication, email confirmation system.
+Ilya Khakhalkin - categories, genres, and works: models, views, and endpoints for them.
+Anna Petrova - reviews and comments.
