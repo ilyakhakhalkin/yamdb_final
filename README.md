@@ -1,6 +1,5 @@
 # api_yamdb
 
-![example workflow](https://github.com/ilyakhakhalkin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 A database of reviews for movies, books, and music.
 
 Users can write reviews for various works, rate them, assign categories and genres. There is also the ability to leave comments under each review.
